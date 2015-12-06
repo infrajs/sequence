@@ -1,0 +1,7 @@
+{
+	"name": "infrajs/sequence",
+	"license": "GPL3",
+	"autoload": {
+		"psr-4": { "infrajs\\sequence\\": "/" }
+	}
+}
