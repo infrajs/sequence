@@ -126,12 +126,12 @@ class Sequence {
 		if(is_array($obj)){
 			if($make&&!is_array($obj[$right[$start]]))$obj[$right[$start]]=array();
 			if(array_key_exists($right[$start],$obj)){
-				return infra_seq_get($obj[$right[$start]],$right,++$start,$end,$make);
+				return Sequence::get($obj[$right[$start]],$right,++$start,$end,$make);
 			}
 		}else if(is_object($obj)){
 			if($make&&!is_array($obj->$$right[$start]))$obj->$$right[$start]=array();
 			if(property_exists($obj,$right[$start])){//К методам объектов обращаться не можем
-				return infra_seq_get($obj->$right[$start],$right,++$start,$end,$make);
+				return Sequence::get($obj->$right[$start],$right,++$start,$end,$make);
 			}
 		}else{
 			return NULL;
