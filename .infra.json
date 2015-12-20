@@ -1,5 +1,3 @@
 {
-	"sequence":{
-		"js":"-sequence/sequence.js"
-	}
+	"js":"sequence.js"
 }
