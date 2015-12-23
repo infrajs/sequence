@@ -1,4 +1,4 @@
-define('?-sequence/sequence.js', function () {
+define('/-sequence/sequence.js', function () {
 	/*
 	 * autosave template session state
 	 * */
