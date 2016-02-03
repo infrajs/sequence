@@ -12,13 +12,10 @@ infra.seq={
 		if(!val||typeof(val)!='object'||val.constructor!=Array)val=[];
 		var nval=[];
 		if(val[0]=='')nval.push('');
-		infra.forr(val,function(s){ 
-			s=String(s);
+		for (var i = 0, l=val.length; i<l; i++) {
+			var s=String(val[i]);
 			nval.push(s.replace(offen,seldom));
-		});
-
-		
-
+		};
 		return nval.join(offen);
 	},
 	contain:function(search,subject){
