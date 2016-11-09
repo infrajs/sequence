@@ -106,12 +106,13 @@ class Sequence {
 				return Sequence::get($obj[$right[$start]], $right, ++$start, $end, $make);
 			}
 		} elseif (is_object($obj)) {
-			if ($make && !is_array($obj->$$right[$start])) {
-				$obj->$$right[$start] = array();
+			$name = $right[$start];
+			if ($make && !is_array($obj->$name)) {
+				$obj->$name = array();
 			}
-			if (property_exists($obj, $right[$start])) {
+			if (property_exists($obj, $name)) {
 				//К методам объектов обращаться не можем
-				return Sequence::get($obj->$right[$start], $right, ++$start, $end, $make);
+				return Sequence::get($obj->$name, $right, ++$start, $end, $make);
 			}
 		} else {
 			return $r;
