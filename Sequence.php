@@ -83,7 +83,7 @@ class Sequence {
 
 		return $obj;
 	}
-	public static function &get(&$obj, &$right, $start = 0, $end = null, $make = false)
+	public static function &get(&$obj, $right, $start = 0, $end = null, $make = false)
 	{
 		//получить из obj значение right до end(не включая) брать начинаем с start
 		if (is_null($end)) {
