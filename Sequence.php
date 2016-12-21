@@ -20,6 +20,7 @@ class Sequence {
 		//При полном соответствии, возвращается массив, что в php будет означать false... нужна строгая проверка false чтобы убедиться что search не содержится в subject
 
 		foreach($search as $index => $name){
+			if (!isset($subject[$index])) return false;
 			if ($name != $subject[$index]) return false; //Весь search не был найден в subject. Если всё равно будет null и сюда не попадаем
 		}
 
