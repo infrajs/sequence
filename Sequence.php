@@ -53,7 +53,7 @@ class Sequence {
 		$res = array();
 		for ($i = 0, $l = sizeof($val);$i < $l;++$i) {
 			$s = $val[$i];
-			if ($s === '' && sizeof($res) != 0 && @$res[$i - 1] !== '') {
+			if ($s === '' && sizeof($res) != 0 && (!isset($res[$i - 1]) || $res[$i - 1] !== '')) {
 				//Сами себя не должны отменять
 				array_pop($res);
 			} else {
@@ -99,10 +99,10 @@ class Sequence {
 		}//Даже если make мы не изменим ссылку null на obj в javascript так что и тут так
 
 		if (is_array($obj)) {
-			if ($make && (@!is_array($obj[$right[$start]]))) {
+			if ($make && (!isset($obj[$right[$start]])||!is_array($obj[$right[$start]]))) {
 				$obj[$right[$start]] = array();
 			}
-			if ($make || @!is_null($obj[$right[$start]])) {
+			if ($make || (isset($obj[$right[$start]]) && !is_null($obj[$right[$start]]))) {
 				//Если передать несуществующее свойство в функцию принимающую ссылку то это свойство начнёт существовать
 				return Sequence::get($obj[$right[$start]], $right, ++$start, $end, $make);
 			}
