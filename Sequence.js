@@ -55,7 +55,7 @@ Sequence = {
 		var make=(typeof(val)=='undefined'||val===null?false:true);
 		var i=right.length-1;
 		if (i==-1) return val;
-		if (make&&(!obj||typeof(obj)!=='object')&&typeof(obj)!==' function ')obj={};
+		if (make&&(!obj||typeof(obj)!=='object')&&typeof(obj)!=='function')obj={};
 		var need=infra.seq.get(obj,right,0,i,make);
 		if (!make&&(need&&typeof(need)=='object'))delete need[right[i]];
 		if (make)need[right[i]]=val;
@@ -67,8 +67,8 @@ Sequence = {
 		if (end===start) return obj;
 		if (obj===undefined) return;
 
-		if (make&&((!obj[right[start]]||typeof(obj[right[start]])!=='object')&&typeof(obj[right[start]])!==' function '))obj[right[start]]={};
-		if ((obj&&typeof(obj)=='object')||typeof(obj)==' function ') {
+		if (make&&((!obj[right[start]]||typeof(obj[right[start]])!=='object')&&typeof(obj[right[start]])!=='function'))obj[right[start]]={};
+		if ((obj&&typeof(obj)=='object')||typeof(obj)=='function') {
 			if (((obj===location||(!obj.hasOwnProperty))&&obj[right[start]])||obj.hasOwnProperty(right[start])) {
 				//в ie у location есть свойство hasOwnProperty но все свойства не являются собственными у location. в ff у location нет метода hasOwnProperty
 				return infra.seq.get(obj[right[start]],right,++start,end,make);
