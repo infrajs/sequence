@@ -63,6 +63,15 @@ class Sequence {
 
 		return $res;
 	}
+	public static function &add(&$obj, $right, &$val)
+	{
+		$i = sizeof($right);
+		if (is_null($val)) return $obj;
+		if (!is_array($obj)) $obj = array();
+		$need = &Sequence::get($obj, $right, 0, $i, true);
+		if (!in_array($val, $need)) $need[] = &$val;
+		return $obj;
+	}
 	public static function &set(&$obj, $right, &$val)
 	{
 		$make = !is_null($val);
@@ -118,25 +127,6 @@ class Sequence {
 		} else {
 			return $r;
 		}
-
 		return $r;
-			/*
-		if(is_null($end))$end=sizeof($right);
-		if($end===$start)return $obj;
-		if(is_null($obj))return;
-		
-		if(is_array($obj)){
-			if($make&&!is_array($obj[$right[$start]]))$obj[$right[$start]]=array();
-			if(array_key_exists($right[$start],$obj)){
-				return Sequence::get($obj[$right[$start]],$right,++$start,$end,$make);
-			}
-		}else if(is_object($obj)){
-			if($make&&!is_array($obj->$$right[$start]))$obj->$$right[$start]=array();
-			if(property_exists($obj,$right[$start])){//К методам объектов обращаться не можем
-				return Sequence::get($obj->$right[$start],$right,++$start,$end,$make);
-			}
-		}else{
-			return NULL;
-		}*/
 	}
 }

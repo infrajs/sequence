@@ -9,7 +9,7 @@ Sequence = {
 		offen=offen||infra.seq.offen;
 		seldom=seldom||infra.seq.seldom;
 		if (typeof(val)=='string') return val;
-		if (!val||typeof(val)!='object'||val.constructor!=Array)val=[];
+		if (!val || typeof(val) != 'object' || val.constructor != Array) val = [];
 		var nval=[];
 		if (val[0]=='')nval.push('');
 		for (var i = 0, l=val.length; i<l; i++) {
@@ -51,7 +51,16 @@ Sequence = {
 		});*/
 		return res;
 	},
-	set: function (obj,right,val) {
+	add: function(obj, right, val)
+	{
+		var i = right.length;
+		if (typeof(val) == 'undefined' || val === null) return obj;
+		if (!obj || typeof(obj) != 'object' || obj.constructor != Array) obj = [];
+		var need = Sequence.get(obj, right, 0, i, true);
+		if (~need.indexOf(val)) need.push(val);
+		return obj;
+	},
+	set: function (obj, right, val) {
 		var make=(typeof(val)=='undefined'||val===null?false:true);
 		var i=right.length-1;
 		if (i==-1) return val;
