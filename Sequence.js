@@ -1,7 +1,7 @@
 /*
  * autosave template session state
  * */
-Sequence = {
+window.Sequence = {
 	seldom: '·',
 	offen: '.',
 	short: function (val,offen,seldom) {//Возвращает строку - короткая запись последовательности
