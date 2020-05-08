@@ -1,7 +1,7 @@
 /*
  * autosave template session state
  * */
-window.Sequence = {
+let Sequence = {
 	seldom: '·',
 	offen: '.',
 	short: function (val,offen,seldom) {//Возвращает строку - короткая запись последовательности
@@ -84,4 +84,6 @@ window.Sequence = {
 		}
 	}
 }
-if (window.infra) infra.seq = Sequence;
+window.Sequence = Sequence
+if (window.infra) infra.seq = Sequence
+export {Sequence}
