@@ -71,7 +71,7 @@ let Seq = {
 		if (make) need[right[i]] = val;
 		return obj;
 	},
-	get: (obj, short, def = null) => {
+	get: (obj, short, def) => {
 		let right = Seq.right(short);
 		let res = Seq.getr(obj, right);
 		return (res == null) ? def : res;
@@ -101,5 +101,6 @@ let Seq = {
 		}
 	}
 }
+window.Seq = Seq
 export { Seq }
 export default Seq
